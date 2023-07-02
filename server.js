@@ -24,7 +24,7 @@ app.use(cors())
 app.use(bodyParser.json());
 
 app.get('/',(req,res)=> {res.send(db.users) });
-app.post('/Signin',(req,res)=>{Signin.handleSignin(req,res,db,bcrypt)});
+app.post('/Signin',(req,res)=>{Signin.handleSignIn(req,res,db,bcrypt)});
 app.post('/Signup',(req,res)=>{Signup.handleSignup(req,res,db,bcrypt)});
 app.get('/profile/:id',(req,res)=>{profile.handleProfile(req,res,db)});
 app.put('/image',(req,res)=>{image.handleImage(req,res,db)});
