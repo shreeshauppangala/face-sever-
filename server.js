@@ -26,10 +26,11 @@ app.use(bodyParser.json());
 app.get('/',(req,res)=> {res.send(db.users) });
 app.post('/Signin',(req,res)=>{Signin.handleSignIn(req,res,db,bcrypt)});
 app.post('/Signup',(req,res)=>{Signup.handleSignup(req,res,db,bcrypt)});
-app.get('/profile/:id',(req,res)=>{profile.handleProfile(req,res,db)});
+app.get('/profile/:id', (req, res) => { Profile.handleProfile(req,res,db)});
 app.put('/image',(req,res)=>{image.handleImage(req,res,db)});
 app.post('/imageurl',(req,res)=>{image.handleApi(req,res)});
 
-app.listen (process.env.PORT||3000,()=>{
-  console.log(`app is running on port ${process.env.PORT}`)
+const port = process.env.PORT || 3000
+app.listen(port,()=>{
+  console.log(`app is running on port ${port}`)
 });
